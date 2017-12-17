@@ -1,0 +1,28 @@
+#!/bin/bash
+
+PA2_DEBUG_SYMTAB=$(mktemp /tmp/pa2-debug-symtab.XXXXXXXXXX)
+/home/linux/ieng6/cs30f/public/mk_symbol_table $1 $PA2_DEBUG_SYMTAB
+PA2_DEBUG_SCRIPT=$(mktemp /tmp/pa2-debug-script.XXXXXXXXXX)
+cat >$PA2_DEBUG_SCRIPT <<EOF
+set confirm off
+set logging file /dev/null
+set logging redirect on
+set logging on
+break void asm_fun<2, 2, 0>::operator()<int, int, unsigned int*, unsigned int*, 0>(int, int, unsigned int*, unsigned int*)
+break void asm_fun<2, 2, 0>::operator()<unsigned int, unsigned int, unsigned int*, unsigned int*, 0>(unsigned int, unsigned int, unsigned int*, unsigned int*)
+run
+set \$code_start = this->code
+break *\$code_start
+symbol-file
+add-symbol-file $PA2_DEBUG_SYMTAB \$code_start
+continue
+delete breakpoints
+set disassemble-next-line on
+set logging off
+set confirm on
+layout asm
+layout regs
+EOF
+
+trap "rm $PA2_DEBUG_SYMTAB; rm $PA2_DEBUG_SCRIPT" EXIT
+gdb -tui -x $PA2_DEBUG_SCRIPT --args /home/linux/ieng6/cs30f/public/pa2-runner "$@"

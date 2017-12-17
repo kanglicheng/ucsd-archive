@@ -1,0 +1,38 @@
+========================
+===Starts on Page 329===
+========================
+
+ARM uses 32-bit instructions of 1s and 0s
+32 bit: cond, op, funct, Rn, Rd, Src2
+
+cond	op	funct	Rn	Rd	Src2
+4 bit	2 bit	6 bits	4 bits	4 bits	12 bits
+
+operands: Rn, Rd, Src2
+
+breakdown of funct:
+	I	cmd	S
+
+	I set when Src2 is an immediate
+	S set when the instruction sets the condition flag
+	cmd indicates the specific data processing instruction
+
+Manipulating data between registers
+1110000 opcode 0 Rn Rd 00000000 Rm
+
+Manipulating data with constants(immediate values)
+1110001 opcode 0 Rn Rd 0000 Immediate
+
+Multiply instructions:
+11100000 op Rd 0000 Rn 1001 Rm
+op = 000
+
+
+opcode	mnemonic
+0000	AND
+0001	EOR
+0010	SUB
+0011	RSB
+0100	ADD
+1100	ORR
+1110	BIC

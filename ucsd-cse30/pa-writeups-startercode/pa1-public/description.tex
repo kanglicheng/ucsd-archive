@@ -1,0 +1,414 @@
+\documentclass{article}
+
+\usepackage{bytefield}
+\usepackage{mathtools}
+\usepackage{float}
+\usepackage{url}
+
+\def\r#1{\texttt{r#1}}
+\def\pc{\texttt{pc}}
+
+\def\band{\mathrel{\&}}
+\def\bxor{\mathrel{\hat{}}}
+\def\bor{\mathrel{|}}
+\def\bneg{\mathord{\sim}}
+
+\begin{document}
+
+\section{ARM Introduction}
+
+In this assignment, you'll be writing some short programs directly in machine
+code. You won't quite write them directly as 1's and 0's---you'll actually type
+in hexadecimal characters---but you'll directly use the encoding of ARM
+instructions in binary. This section lays out the instructions you'll need to
+use for this assignment in detail.
+
+For now, it will suffice to know a few basic formats for data manipulation
+instructions. Here is the format for manipulating data strictly between
+registers:
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{1110000} &
+    \bitbox{4}{opcode} &
+    \bitbox{1}{0} &
+    \bitbox{4}{$R_n$} &
+    \bitbox{4}{$R_d$} &
+    \bitboxes*{1}{00000000} &
+    \bitbox{4}{$R_m$}
+  \end{bytefield}
+\end{figure}
+
+Generally, $R_n$ and $R_m$ are the operands of this operation; opcode
+selects which operator to apply to them, and the result is stored in
+$R_d$.  Some math-related opcodes useful for this assignment are:
+
+\begin{figure}[H]
+  \centering
+  \begin{tabular}{lll}
+    opcode & mnemonic & expression \\
+    \hline \\
+    0000 & AND & $R_d \coloneqq R_n \band R_m$ \\
+    0001 & EOR & $R_d \coloneqq R_n \bxor R_m$ \\
+    0010 & SUB & $R_d \coloneqq R_n - R_m$ \\
+    0011 & RSB & $R_d \coloneqq R_m - R_n$ \\
+    0100 & ADD & $R_d \coloneqq R_n + R_m$ \\
+    1100 & ORR & $R_d \coloneqq R_n \bor R_m$ \\
+    1110 & BIC & $R_d \coloneqq R_m \band \bneg R_m$ \\
+  \end{tabular}
+\end{figure}
+
+Another form of data manipulation instructions lets us combine values in
+registers with constants:
+
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{1110001} &
+    \bitbox{4}{opcode} &
+    \bitbox{1}{0} &
+    \bitbox{4}{$R_n$} &
+    \bitbox{4}{$R_d$} &
+    \bitboxes*{1}{0000} &
+    \bitbox{8}{Imm}
+  \end{bytefield}
+\end{figure}
+
+The key difference is the {\tt 1} instead of a {\tt 0} in bit 25, which makes
+the instruction operate in immediate mode. Then, Imm is a binary value that is
+used in place of $R_m$ above. So, for example, if we used {\tt 00001111} as
+bits 0-7 of of an addition instruction, it would add 15 to the value of the
+$R_n$ register and store it in $R_d$.
+
+
+There is another format of instructions which is used for multiply-like
+instructions:
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{11100000} &
+    \bitbox{3}{op} &
+    \bitbox{1}{0}
+    \bitbox{4}{$R_d$} &
+    \bitboxes*{1}{0000} &
+    \bitbox{4}{$R_n$} &
+    \bitboxes*{1}{1001} &
+    \bitbox{4}{$R_m$}
+  \end{bytefield}
+\end{figure}
+
+The multiply operation's opcode is {\tt 000}, so replacing \textit{op} above
+with {\tt 000} indicates a multiply. You only need this version of multiply for
+this assignment, you can see the others in tabular form in appendix B of the
+Harris book if you're interested in seeing more.
+
+\section{Support Code and Example}
+
+We've provided support code so that you can simply write machine code
+instructions as hexadecimal, create a binary file from them, and then execute
+it with certain starting conditions. Let's consider the following problem:
+
+\begin{quote}
+Assume that \r{1} contains $x$ and \r{2} contains $y$. Write machine code
+instructions that result in the value $x + y$ being stored in \r{0}.
+\end{quote}
+
+Our task is to create a binary file containing the (in this case single)
+instruction that adds the values and stores the result in \r{0}. We can use the
+specification of add above to get started; we want to take the pattern for data
+processing instructions, and pick the opcode for ADD (which is {\tt 0 1 0 0})
+and the appropriate registers. Note that the registers are indicated by their
+unsigned binary representation in 4 bits, so \r{0} is {\tt 0 0 0 0}, \r{1} is
+{\tt 0 0 0 1}, and so on. Here's the first step
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{1110000} &
+    \bitbox{4}{opcode} &
+    \bitbox{1}{0} &
+    \bitbox{4}{$R_n$} &
+    \bitbox{4}{$R_d$} &
+    \bitboxes*{1}{00000000} &
+    \bitbox{4}{$R_m$}
+  \end{bytefield}
+
+  \vspace{2em}
+
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{1110000} &
+    \bitboxes*{1}{0100} &
+    \bitbox{1}{0} &
+    \bitboxes*{1}{0010} &
+    \bitboxes*{1}{0000} &
+    \bitboxes*{1}{00000000} &
+    \bitboxes*{1}{0001}
+  \end{bytefield}
+\end{figure}
+
+(Here, we picked that the $n$-labelled source register would hold \r{2} ($y$),
+and the $m$-labelled source register would hold \r{1} ($x$). Since addition
+commutes, we could have picked either order.)
+
+Now we need to take that instruction and turn it into a binary file. Note that
+a file containing \emph{text} 1's and 0's is not a binary file (a good resource
+on this is
+\url{https://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/asciiBin.html}).
+We don't want a file containing a sequence of bytes representing ASCII; we want
+a file containing exactly the four bytes of the instruction above, in the right
+format and order.
+
+One of the most straightforward ways to do this is with the {\tt xxd} command.
+It is useful for a number of things, where one mode of operation is taking
+files containing hexadecimal text and converting them to the corresponding
+binary files. We'll show an example of that command in a moment, but first, we
+need to think a little bit about the ordering of bits.
+
+All of the instructions we've shown have had the 0th bit all the way to the
+right. This is a convention for writing out ARM machine code because it reads
+well left-to-right -- first the opcode, then the arguments. However, the actual
+order of the bits is the reverse of this. Further, the bytes themselves are
+interpreted in what's called ``little-endian'' order, meaning the ``ones''
+place is actually all the way to the left. Let's do an example to process this
+conversion.
+
+First, we re-organize the breaks to see the instruction in terms of byte
+chunks, which will help us think through the hexadecimal encoding.
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{1110000} &
+    \bitboxes*{1}{0100} &
+    \bitbox{1}{0} &
+    \bitboxes*{1}{0010} &
+    \bitboxes*{1}{0000} &
+    \bitboxes*{1}{00000000} &
+    \bitboxes*{1}{0001}
+  \end{bytefield}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{11100000} &
+    \bitboxes*{1}{10000010} &
+    \bitboxes*{1}{00000000} &
+    \bitboxes*{1}{00000001} &
+  \end{bytefield}
+\end{figure}
+
+Next we reverse the whole thing to help us see the correct left-to-right order
+of the whole instruction:
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=little]{0-31} \\
+    \bitboxes*{1}{10000000} &
+    \bitboxes*{1}{00000000} &
+    \bitboxes*{1}{01000001} &
+    \bitboxes*{1}{00000111} &
+  \end{bytefield}
+\end{figure}
+
+Next, we flip each individual byte, because the bytes are interpreted in
+little-endian order:
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=little]{0-31} \\
+    \bitboxes*{1}{00000001} &
+    \bitboxes*{1}{00000000} &
+    \bitboxes*{1}{10000010} &
+    \bitboxes*{1}{11100000} &
+  \end{bytefield}
+\end{figure}
+
+Finally, we convert to hexadecimal:
+
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=little]{0-31} \\
+    \bitbox{8}{01} &
+    \bitbox{8}{00} &
+    \bitbox{8}{82} &
+    \bitbox{8}{e0} &
+  \end{bytefield}
+\end{figure}
+
+So the hexadecimal encoding of this instruction is {\tt 010082e0}. We can put
+that into a file, let's call it {\tt add.txt}. The {\tt xxd} command can be
+used to create a binary from it:
+
+\begin{verbatim}
+$ xxd -p -r add.txt add.bin
+\end{verbatim}
+
+And then we can run the file using the provided runner, which lets us give
+arguments as command-line arguments, puts them into the designated registers,
+and runs our binary code:
+
+\begin{verbatim}
+cs30f@pi-cluster-013:~/pa1/$ pa1-runner add.bin 3 -7
+f(3, -7):
+  r0 = fffffffc (-4)
+  r1 = 3        (3)
+  r2 = fffffff9 (-7)
+  r3 = 7efc2aec (2130455276)
+  r4 = 0        (0)
+  r5 = 0        (0)
+  r6 = 110f4    (69876)
+\end{verbatim}
+
+This command \emph{must} be run on {\tt pi-cluster}. Note that the values in
+\r{3} to \r{6} aren't set by the sample adding program, so you might see
+different values show up there. But \r{0} has the sum, \r{1} has the first
+input, and \r{2} has the second input.
+
+A few extra notes:
+
+\begin{itemize}
+\item We can use {\tt xxd} to see our instruction in binary again:
+
+\begin{verbatim}
+$ xxd -b add.bin
+00000001 00000000 10000010 11100000
+\end{verbatim}
+
+Or in hexadecimal:
+
+\begin{verbatim}
+$ xxd -p add.bin
+010082e0
+\end{verbatim}
+
+\item An abbreviated process for getting to the appropriate hexadecimal from
+the conventional binary notation is to convert to hexadecimal, and then simply
+reverse the order of the four bytes, so the first byte becomes the last, the
+last the first, and the middle two are swapped:
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitboxes*{1}{11100000} &
+    \bitboxes*{1}{10000010} &
+    \bitboxes*{1}{00000000} &
+    \bitboxes*{1}{00000001} &
+  \end{bytefield}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=big]{0-31} \\
+    \bitbox{8}{e0} &
+    \bitbox{8}{82} &
+    \bitbox{8}{00} &
+    \bitbox{8}{01} &
+  \end{bytefield}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{bytefield}{32}
+    \bitheader[endianness=little]{0-31} \\
+    \bitbox{8}{01} &
+    \bitbox{8}{00} &
+    \bitbox{8}{82} &
+    \bitbox{8}{e0} &
+  \end{bytefield}
+\end{figure}
+\end{itemize}
+
+
+\section{Programs to Write}
+
+You will fill in the provided text files, each with a particular formula using
+the instructions above. You will hand in your plain-text files with
+instructions in hexadecimal, using the process described above. In all cases,
+assume that initially $x$ is stored in \r{1}, $y$ is stored in \r{2}, and the
+result should appear in \r{0}. You may use any registers from \r{0} to \r{6}
+for your computation.
+
+\begin{enumerate}
+\item In {\tt sub2.txt}, compute $x - y - y$
+\item In {\tt submul.txt}, compute $(x - y) * y$
+\item In {\tt addsubmul.txt}, compute $(x - y) * (x + y)$
+\item In {\tt quad.txt}, compute $2x^2 + yx - 7$
+\end{enumerate}
+
+
+\section{README}
+
+Along with your code, please also submit a README file which contains your 
+answers to the following questions:
+
+\begin{enumerate} \item There are three mystery files that contain hexadecimal
+instructions in your checkout. Your job is to figure out and explain what these
+mystery binaries do (they are short). You might do so via testing, or by
+converting the hexadecimal instructions back to binary code, and checking for
+opcodes. You will probably want to use commands like {\tt xxd -p -c 4
+mystery1.bin} to do this. In your explanation, you should explain how you get
+your final answers. For instance, you can say: ``the opcode of the first
+instruction is 0000, which represents a AND operation.'' or ``$R_d$ of the
+second instruction is 0001, which stores the result to register 1'' 
+
+Also, provide at three examples for each mystery file with different values of
+x and y that you pass as arguments to run the program. After you figure out
+what operations are used in these files, explain the meanings of these
+operations and results. (Notice that the arguments you passed in and the answer
+are all in decimal values. It might be helpful to convert them to other bases
+in order to understand the meaning of these operations)
+
+\item Starting from the instruction format in the textbook and this writeup, 
+we have to do two apparent reversing operations: one on the whole instruction, 
+and one on each byte. Please explain why we need these two reverses in your
+own words.
+\item Consider the machine code corresponding to r0 = r1 + r2. If we wanted to 
+change the instruction to use some other register instead of r1, how would the 
+machine code change and why?
+\end{enumerate}
+
+Please limit your answer to each question to no more than 100 words and present
+them as clearly as possible. For the mystery files, use 100 words or less for
+each file.
+
+\section{Handin}
+
+Commit and push your four text files to the Github repository that was created
+for you by 11:59PM on Tuesday, October 10. You can push up to one day late for
+a 20\% penalty. After you push, make sure to check on Github that the files are
+actually there; we will mark all of the repositories for grading a few minutes
+after midnight and grade precisely what is there.
+
+Your handin should include:
+
+\begin{itemize}
+\item Four .txt files containing hex values ({\tt addsubmul.txt}, {\tt
+sub2.txt}, {\tt submul.txt}, and {\tt quad.txt}) that are instructions to
+calculate the formulae above.
+\item A single README.txt file that has answers to the open-ended questions
+above, as specified.
+\end{itemize}
+
+\end{document}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: "description"
+%%% End:
+

@@ -1,0 +1,26 @@
+1. Email:
+
+2. What register does the ARM calling convention use for the return value?
+
+	Answer:
+	r0
+
+3. If, in C, we write the function call "f(34, 56, 78)", what register will the called function expect to contain 56 according to the ARM calling convention?
+	
+	Answer:
+	r1
+
+4. A function always needs to save the arguments to the stack as local variables in order to execute correctly. 
+
+	Answer:
+	False
+
+5. How is the "bl" instruction different from "b"?
+	Options:
+	It only runs if the "l" flag is set
+	It saves the return address to the link register before branching
+	It pushes any necessary registers to the stack before branching
+	It only works in leaf functions
+
+	Answer:
+	It saves the return address to the link register before branching

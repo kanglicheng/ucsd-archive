@@ -1,0 +1,104 @@
+Question 1:
+	2.75
+	Practice
+
+Question 2:
+	Study mantissa, and floating point numbers
+Question 3:
+	True
+	Rusty
+Question 4:
+	Study/Look up
+	Strlen
+	Strcmp
+	strncmp
+	All standard C string functions
+Question 5:
+	dyPossibly 100 22 20 22
+	Hard, more stu	
+
+Question 6:
+	24 add mallocs subtract frees
+Question 7:
+	same as 5
+
+Question 8:
+	Study Array Quiz and material
+	How is an array/array of structs stored?
+	What does it mean when a struct holds an array?
+	What does it mean to define an array of char structs (and so forth)?
+	Make some programs and understand this.  (This is probably not something you can know from lectures or text readings.)
+
+Question 9:
+	DO READINS
+	Caching
+	Harris 8.5
+
+Question 10:
+	Harris Chapter 8 and Lecture
+	May be true
+
+Question 11:
+	True or false: virtual memory can be used to simulate memory space larger than what's available in physical memory *
+
+	True
+
+	Study Virtual Memory
+	Simulates an address space
+
+Question 12:
+	True or false: the address space of virtual memory addresses must be EQUAL TO OR SMALLER than the address space of physical addresses in order for virtual memory to work.
+
+	May be false 
+	Study Virt Memory
+
+Question 13:
+	In our lecture on virtual memory, we used 4kb pages, which used 20 bits for the page address and 12 bits for the offset into the page. If we instead had 1MB pages, how many bits would be needed for the offset? *
+
+2^0 = 	0
+	2
+	4
+	8
+	16
+	32
+	64
+	128
+	256
+	512
+	1024
+	2048
+2^12 =	4096
+	8192
+	16364
+	32728
+	65456
+	..
+	..
+	..
+2^20= 	1 MB
+	..
+	...
+2^30 = 	1 GB
+
+
+
+
+
+Question 14:
+xor=
+x y z
+0 0 0
+1 0 1
+0 1 1
+1 1 1
+FALSE!
+
+	Study bitwise operator truth tables
+	
+
+
+Question 15:
+	r = 0
+	other branch = 1
+	0 xor 1
+	

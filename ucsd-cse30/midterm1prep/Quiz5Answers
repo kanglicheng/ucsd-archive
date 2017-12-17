@@ -1,0 +1,109 @@
+1. Email Address:
+
+2. What is the decimal representation of the signed magnitude binary number
+1100 0100?
+	Negative
+	4 + 64 = 68
+	Answer = -68
+
+3. What is the result of adding 0x10F and 0x214 (both are hexidecimal numbers)
+	
+	10F
+	214
+	---
+	323
+	F + 4 = 19 - 16 = 3 carry the 1
+	1 + 1 = 2
+	1 + 2 = 3
+
+4. What is the I (capital-i) but usually for in data-processing instructions 
+   in ARM?
+
+	I is set when Src2 contains an immediate
+	Ans: It specifies whether the second argument will be an 
+	     immediate value or a register
+
+5. The machine encoding of a branch instruction can express changing the program 
+   counter to any 32-bit address.
+	True
+
+
+6. Which of the following instructions set condition flags, but don't change 
+   the values in any registers?
+	options:
+		subs r1, r2
+		cmp r1, r2
+		sub r1, r2
+		bne loop
+
+	subs obviously changes the register values as well as CSPR
+	sub r1, r2 is shorthand for sub r1, r1, r2 so that means it 
+		changes the values of registers
+	cmp throws away the result of the sub so it sets the CPSR but doesnt change the registers
+	bne is not a valid answer
+
+7. Which of the following condition mnemonics means "The overflow bit AND the 
+   zero bit are set"?
+	N V 
+	0 0
+	0 1
+	1 0
+	1 1  
+
+	options:
+		NE !Z
+		PL !N
+		GE !(N eor V)
+		HS  C
+		None of the above
+
+	None of the above
+
+
+8. The difference in the machine instructions for "sub r1, r2, r3" and 
+   "subne r3, r2, r3" is in... (choose ALL that apply)
+	options:
+		Bit 20 (the S part)
+		Bits 19:16 (the Rn part)
+		Bits 31:28 (the cond part)
+		Bits 24:21 (the cmd part)
+		Bits 15:12 (the Rd part)
+
+	sub r1, r2, r3
+	1110000 opcode 0 Rn Rd 00000000 Rm
+	1110000 0010 0 0010 0001 00000000 0011
+
+	subne r3, r2, r3
+	XXX 00 I cmd S Rn Rd shamt5 sh 0 Rm
+
+	Ans:
+	Bit 20 is not set/changed.
+	Bits 19:16 are not changed. (self explanatory)
+	Bits 31:28 are changed. (cond it changed from al to ne)
+	Bits 24:21 is not changed. (cmd is basically the opcode)
+	Bits 15:12 (Rd) is  changed. (self explanatory)
+
+
+9. If logically shifted left by THREE bits using the "lsls" instruction, 
+   which of the following examples would set the carry bit? Choose ALL that apply
+	options:
+		0x00000008
+		0x20000001
+		0x80000000
+		0x10000000
+		0x20000002
+
+	Ans:
+		0x00000008 does not set the carry bit in a 32-bit register
+		0x20000001 
+			leftmost nibble: 0010
+			3 bits left shift => carry bit set
+		0x80000000
+			leftmost nibble: 1000
+			3 bits left shift => carry bit set
+		0x10000000
+			leftmost nibble: 0001
+			3 bits left shift => carry bit not set
+		0x20000002
+			leftmost nibble: 0010
+			3 bits left shift => carry bit set

@@ -1,0 +1,162 @@
+1. What does this program print? *
+
+struct Node {
+  int size;
+  struct Node* next;
+};
+
+void f(struct Node n) {
+  n.size = 100;
+}
+
+int main() {
+  struct Node n = {50, NULL};
+  f(n);
+  printf(""%d\n", n.size);
+}
+
+Options:
+50
+100
+
+Answer:
+50
+
+2. What does this program print? *
+
+struct Node {
+  int size;
+  struct Node* next;
+};
+
+int g(struct Node n) {
+  return n.size;
+}
+
+void f(struct Node n) {
+  n.size = 100;
+  return g(n);
+}
+
+int main() {
+  struct Node n = {50, NULL};
+  int ans = f(n);
+  printf(""%d\n", ans);
+}
+
+
+Options:
+50
+100
+
+Answer:
+100
+
+3. What does this program print? *
+
+struct Node {
+  int size;
+  struct Node* next;
+};
+
+int g(struct Node n) {
+  return n->size;
+}
+
+void f(struct Node n) {
+  n.size = 100;
+  return g(&n);
+}
+
+int main() {
+  struct Node n = {50, NULL};
+  int ans = f(n);
+  printf(""%d\n", ans);
+}
+
+
+Options:
+50
+100
+
+Answer:
+100
+
+4. What does this program print? *
+
+struct Node {
+  int size;
+  struct Node* next;
+};
+
+int g(struct Node n) {
+  n->size = 200;
+}
+
+void f(struct Node n) {
+  n.size = 100;
+  g(&n);
+}
+
+int main() {
+  struct Node n = {50, NULL};
+  f(n);
+  printf(""%d\n", n.size);
+}
+
+Options:
+50
+100
+200
+
+Answer:
+50
+
+5. What does this program print? *
+
+struct Node {
+  int size;
+  struct Node* next;
+};
+
+void f(struct Node n[]) {
+  n[0].size = 100;
+}
+
+int main() {
+  struct Node n[] = {{50, NULL}, {100, NULL}};
+  f(n);
+  printf(""%d\n", n[0].size);
+}
+
+
+Options:
+50
+100
+
+Answer:
+100
+
+6. What does this program print? *
+
+struct Node {
+  int sizes[4];
+  struct Node* next;
+};
+
+void f(struct Node n) {
+  n.sizes[10] = 100;
+}
+
+int main() {
+  struct Node n[] = {{3,4,5,6}, NULL};
+  f(n);
+  printf(""%d\n", n.sizes[0]);
+}
+
+Options:
+3
+100
+
+Answer:
+3

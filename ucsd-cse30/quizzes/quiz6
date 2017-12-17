@@ -1,0 +1,56 @@
+1. Email
+
+2. 
+push	{lr} is equivalent to..
+	options:
+	sub	sp, #4 followed by str lr, [sp]
+	add	sp, #4 followed by str lr, [sp]
+	str	lr, [sp] followed by sub sp, #4
+	sub	sp, #4 followed by ldr lr, [sp]
+
+	Answer:
+	sub	sp, #4 followed by str lr, [sp]
+
+3. 
+push {r14, pc} and push {lr, pc} behave exactly the same
+	options:
+	True
+	False
+
+	Answer:
+	True. lr = r14
+
+
+4. 
+push {r1, r2} and push {r2, r1} behave exactly the same 
+	options:
+	True
+	False
+
+	Answer:
+	True
+
+5. 
+A function call always returns to the same address, no matter 
+where it's called from
+	options:
+	True
+	False
+
+	False, depends on the lr
+
+6. 
+Imagein that a program just started running on one of our 
+Raspberry Pis. Whichregister holds an address close to where 
+the command-line arguments are stored?
+	options:
+	r14
+	pc
+	lr
+	_start
+
+	Answer:
+	r14 (r13/SP ???)
+
+	
+

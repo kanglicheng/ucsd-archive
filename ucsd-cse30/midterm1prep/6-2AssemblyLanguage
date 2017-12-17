@@ -1,0 +1,13 @@
+Page 295
+
+registers r0 -> r15 exist
+r13 = SP Stack Pointer
+r14 = LR Link Register
+r15 = PC Program Counter
+
+Memory
+	Each byte in memory has a unique address. 
+	32 bit word has 4 8-bit bytes
+
+	LDR	r7, [r5, #8]	@ r7 <= data at memory address (r5+8)
+	8 is the offset

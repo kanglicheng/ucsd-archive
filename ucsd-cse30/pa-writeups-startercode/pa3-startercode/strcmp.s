@@ -1,0 +1,4 @@
+.text
+.global mystrcmp
+
+mystrcmp:

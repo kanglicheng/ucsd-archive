@@ -1,0 +1,259 @@
+===========Question 1:============
+
+What does this program print?
+#include <stdlib.h>
+#include <stdio.h.>
+
+void f(int* n){
+	n[1] = 10;
+}
+
+int main() {
+	int* ns = malloc(sizeof(int) * 2);
+	ns[0] = 0;
+	ns[1] = 1;
+	f(ns);
+	printf("%d", ns[1]);
+}
+
+Options:
+	0
+	1
+	2
+	8
+	10
+
+Answer:
+	10
+
+===========Question 2:============
+
+What will this program print?
+#include <stdlib.h>
+#include <stdio.h>
+
+void f(int* n){
+	n = malloc(sizeof(int) * 2);
+	n[1] = 10;
+}
+
+int main() {
+	int* ns = malloc(sizeof(int) * 2);
+	ns[0] = 0;
+	ns[1] = 1;
+	f(ns);
+	printf("%d", ns[1]);
+}
+
+Options:
+	0
+	1
+	2
+	8
+	10
+
+
+Answer:
+	1
+
+===========Question 3:============
+
+How many bytes does the call to free relinquish back to the memory
+management system?
+
+#include <stdlib.h>
+#include <stdio.h>
+
+char* f() {
+	char* m = malloc(sizeof(char) * 10);
+	char* n = malloc(sizeof(char) * 6);
+	m = n;
+	return m;
+}
+
+int main() {
+	char* o = f();
+	free(o);
+}
+
+Options:
+	16
+	10
+	6
+	0
+	40
+	24
+Answer:
+	6	
+	
+===========Question 4:============
+
+What will this program print?
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+int main() {
+	char* s = malloc(s);
+	s{0] = 'a'; s[1] = 'b'; s[2] = 'c'; s[3] = '\0'; s[4] = 'f';
+	int len = strlen(s);
+	printf("%d\n", len;
+	return 0;
+}
+
+Options:
+	abc
+	5
+	4
+	abcf
+	3
+	2
+
+Answer:
+	3	
+
+===========Question 5:============
+
+How many bytes are needed to to store the contents of the struct c?
+struct S {
+	int v;
+	char* c;
+	int* w;
+};
+
+struct C {
+	struct S* s;
+};
+
+Answer:
+	4
+
+===========Question 6:============
+
+Based on the calling convention discussed in 
+class and the book, the statement "push {lr}" 
+at the beginning of a function makes sense to 
+pair with which of the following at the end of a function?
+
+Options:
+	pop {lr}
+	mov pc, lr
+	pop {pc}
+	mov lr, pc
+
+Answer:
+	pop {pc}
+
+===========Question 7:============
+
+The push instruction changes the value of sp.
+
+Options:
+	True
+	False
+
+Answer:
+	True
+
+===========Question 8:============
+
+The str instruction changes the value of sp
+
+Options:
+	True
+	False
+
+Answer:
+	True
+===========Question 9:============
+
+The bl instruction changes the value of sp
+
+Options:
+	True
+	False
+
+Answer:
+	False
+===========Question 10:===========
+
+In the compiled output of the C expression "x->a = v", 
+the part of the output that does the real work of 
+assigning into the "a" field of the struct will be..
+
+Options:
+	ldr
+	str
+	mov
+	push
+	pop
+
+Answer:
+	str
+
+===========Question 11:===========
+
+Which of these is a good rule for thinking about 
+malloc, free, and avoiding memory leaks?
+
+Options:
+	1. There should always be an equal number of 
+	   times the word "malloc" and "free" appear in the code
+	2. Every function that uses a pointer should free 
+	   it before the end of the function
+	3. For each time malloc is called in the running program, 
+	   there should at some point later be a corresponding 
+	   call to free for that address
+	4. For each time malloc is called in the running program, 
+	   there should at some point later be at least one, and 
+	   maybe more than one, call to free for that address
+
+Answer:
+	3
+
+===========Question 12:===========
+
+Temporary values that a function uses, and "remembers" 
+whiile calling other functions, can be stored in 
+(choose ALL that apply) *
+
+Options:
+	1. r0
+	2. r1
+	3. r4
+	4. r5
+	5. memory addresses that it makes space for 
+	   by changing the value of sp
+
+Answer:
+	3, 4, 5
+===========Question 13:===========
+Which of the following things is a function responsible 
+for doing before returning? Choose ALL that apply *
+
+Options:
+	1. Restoring the values of r4-r10 that were present 
+	   before the function began running
+	2. Restoring the values of r0-r3 that were present 
+	   before the function began running
+	3. Restoring the value of lr that was present before 
+	   the function began running
+	4. Restoring the value of sp that was present before 
+	   the function began running
+	5. Putting the return value in r0
+
+Answer:
+	1, 4, 5	
+
+===========Question 14:===========
+Which of the following actions most directly 
+corresponds to the act of returning from a function? *
+
+Options:
+	Changing the value of lr
+	Changing the value of pc
+	Pushing values onto the stack
+	Allocating memory on the heap
+
+Answer:
+	Changing the value of pc
