@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{Math 184A Homework 5}
+\date{Spring 2018}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope by Friday May 18th at 11:59pm. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Permutation Identity, 50 points].\\
+\begin{enumerate}[(a)]
+\item Let $p_{d,o}(n)$ be the number of partitions of $n$ into distinct, odd parts. Find a formula for the generating function $\sum_{n=0}^\infty p_{d,o}(n)x^n$. [20 points]
+\item Let $p_{even}(n)$ (resp. $p_{odd}(n)$) denote the total number of partitions of $n$ into an even (resp. odd) number of parts. Find a formula for the generating function $\sum_{n=0}^\infty (-1)^n(p_{even}(n)-p_{odd}(n))x^n$. [20 points]
+\item Show that the above generating functions are the same and conclude $p_{d,o}(n) = |p_{even}(n)-p_{odd}(n)|$ for all $n$. [10 points]
+\end{enumerate}
+[Note: the generating functions above may need to involve infinite products.]
+\end{ques}
+
+\begin{ques}[Generating Functions, 50 points]
+Find expressions for the following generating functions: [10 points each]
+\begin{enumerate}[(a)]
+\item Let $a_n$ be the number of compositions of $n$ into odd parts where each part is colored either red or blue (for example $a_1=2$ since you can write $1$ as either a red $1$ or a blue $1$). Give the ordinary generating function $\sum_{n=0}^\infty a_n x^n.$
+\item Let $b_n$ be the difference between the number of compositions of $n$ into an even number of parts of size $1$ and $2$, and the number of compositions of $n$ into an odd number of parts of size $1$ and $2$. Give a closed form for the ordinary generating function $\sum_{n=0}^\infty b_nx^n$. Use this to give an explicit formula for $b_n$.
+\item Let $c_n = n C_n$ where $C_n$ is the Catalan number. Give an explicit formula for the ordinary generating function $\sum_{n=0}^\infty c_n x^n$. [Hint: you might want to consider differentiating the generating function for the Catalan numbers.]
+\item Let $d_n$ be the number of set partitions of $[n]$ into sets of size exactly $2$ [Note: $d_n$ will be $0$ if $n$ is odd]. Find a formula for $d_n$, and use it to obtain an explicit form for the exponential generating function $\sum_{n=0}^\infty d_n x^n/n!$.
+\item Let $e_n$ be a sequence with $e_{n+2} = e_{n+1}+ne_n$ for all $n\geq 0$. Give a differential equation satisfied by the exponential generating function $E(x) = \sum_{n=0}^\infty e_n x^n/n!$.
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend on this homework?
+\end{ques}
+
+\end{document} 

@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{Math 184A Homework 2}
+\date{Spring 2018}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope by Friday April 20th at 11:59pm. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Partition Recurrence, 15 points]
+We didn't mention in class any method to compute partition numbers, but there is a relatively simple recurrence relation that can be used for them. Prove that for all $n\geq k \geq 1$ that
+$$
+p_k(n) = \sum_{i=0}^k p_i(n-k).
+$$
+\end{ques}
+
+\begin{ques}[Partitions with Sequential Part Sizes, 15 points]
+Show that the number of partitions of $n$ into parts of distinct sizes is the same as the number of partitions of $n$ so that the adjacent parts have sizes differing by at most $1$ (so in particular $a_i \geq a_{i+1} \geq a_i-1$) and the smallest part has size 1.
+\end{ques}
+
+\begin{ques}[Compositions and Fibonacci Numbers, 30 points]
+.
+
+\begin{enumerate}[(a)]
+\item Show that the number of compositions of $n$ into odd parts is the same as the number of compositions of $n-1$ into parts of size $1$ and $2$ for all $n\geq 1$. [15 points]
+\item Define the Fibonacci numbers by the recurrence relation $F_1=F_2=1$ and $F_n=F_{n-1}+F_{n-2}$ for all $n\geq 3$. Show that the number of compositions of $n$ into odd parts is $F_n$ for all $n\geq 0$. [15 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Summation Polynomials, 40 points]
+.
+
+\begin{enumerate}[(a)]
+\item Show that the number of compositions of $n$ into $k$ parts is the sum of $m$ going from $0$ to $n-1$ of the number of compositions of $m$ into $k-1$ parts. [10 points]
+\item Show that for any $n$ and $k$ that
+$$
+\sum_{i=0}^n \binom{i}{k} = \binom{n+1}{k+1}.
+$$
+[10 points]
+\item Recall that
+$$
+x^m = \sum_{k=0}^m k! S(m,k) \binom{x}{k}.
+$$
+We would like to come up with a formula for
+$$
+\sum_{i=0}^n i^m = P_m(n).
+$$
+In particular, we claim that for each $m$, we claim that $P_m(n)$ is a polynomial in $n$. For example,
+$$
+\sum_{i=0}^n i = \frac{n(n+1)}{2},
+$$
+so $P_1(n) = n(n+1)/2.$ Using the above formula and the result in part (b), give a formula for $P_m(n)$ in terms of Stirling numbers, and binomial coefficients. [20 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend on this homework?
+\end{ques}
+
+\end{document} 

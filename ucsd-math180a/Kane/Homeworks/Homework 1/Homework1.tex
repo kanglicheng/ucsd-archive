@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{Math 184A Homework 1}
+\date{Spring 2018}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope by Friday April 13th at 11:59pm. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Chebyshev Polynomials, 30 points]
+Prove by induction that for all positive integers $n$, there is a polynomial $T_n(x)$ so that $\cos(n\theta) = T_n(\cos(\theta))$ for all values of $\theta$. You may want to make use of the angle sum formulas
+$$
+\cos(\theta+\phi) = \cos(\theta)\cos(\phi)-\sin(\theta)\sin(\phi)
+$$
+and
+$$
+\sin(\theta+\phi)=\sin(\theta)\cos(\phi)+\cos(\theta)\sin(\phi),
+$$
+and the identity
+$$
+\sin^2(\theta)+\cos^2(\theta)=1.
+$$
+[Hint: it might be useful to also prove that there is a polynomial $S_n(x)$ so that $\sin(n\theta)= \sin(\theta)S_n(\cos(\theta))$.]
+\end{ques}
+
+\begin{ques}[Twenty Questions, 30 points]
+Consider the game of twenty questions. The Keeper picks a secret object and you need to try to guess what it is. You can do this by asking up to twenty yes/no questions about the object that must be answered truthfully. The questions that you ask can depend on the answers to previously asked questions. After twenty questions are asked you need to guess the secret.
+\begin{enumerate}[(a)]
+\item Show that if the secret object is picked from a known list of $1,050,000$ possibilities that there is no way to guarantee that you will guess the secret correctly. [20 points]
+\item Show that if instead the secret object is picked from a known list of $1,040,000$ possibilities, that there is a strategy to guarantee that you will find the secret. [10 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Mini-Checkerboard Colorings, 40 points]
+For the purposes of this question a mini-checkerboard is a $4\times 4$ grid of squares laid out in a fixed orientation. These squares are arranged into 4 rows of 4, and into 4 columns of 4. A coloring involves coloring every square either black or white. In the following questions you will be asked for the number of mini-checkerboard colorings with various properties. Please both give your answer in a useful algebraic format (e.g. $7\cdot \binom{16}{3}$) and as an exact number.
+\begin{enumerate}[(a)]
+\item How many total colorings are there? [5 points]
+\item How many colorings have each row monochromatic (i.e. each row contains squares of only one color)? [5 points]
+\item How many colorings have exactly either five or six black squares? [5 points]
+\item How many colorings have exactly two rows with black squares in them? [5 points]
+\item How many colorings have different numbers of black squares in each row? [5 points]
+\item How many colorings have exactly two white squares per column? [5 points]
+\item How many colorings have exactly one white square in each row and exactly one white square in each column? [5 points]
+\item How many colorings have at most one white square in each row and at most one white square in each column? [5 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend on this homework?
+\end{ques}
+
+\end{document} 

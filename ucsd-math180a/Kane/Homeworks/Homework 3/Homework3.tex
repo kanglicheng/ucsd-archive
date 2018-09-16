@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{Math 184A Homework 3}
+\date{Spring 2018}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope by Friday May 4th at 11:59pm. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Summation Polynomials Redux, 20 points]
+Recall that in the last homework we showed that
+$$
+\sum_{i=1}^n i^m = P_m(n)
+$$
+where
+$$
+P_m(x) = \sum_{k=0}^m k!S(m,k)\binom{x+1}{k+1}.
+$$
+Suppose that we want to find the coefficients of the polynomial $$P_m(x-1)=c_{m+1,m}x^{m+1}+c_{m,m}x^m+\ldots+c_{0,m}.$$
+Show that there is a formula for the coefficients $c_{i,j}$ given as a summation involving Stirling numbers of the first and second kind.
+\end{ques}
+
+\begin{ques}[Permutations Without $2$-Cycles, 20 points]
+Give a formula for the number of permutations of a set of $2n$ elements that have no cycles of length $2$. Your formula may include a single summation.
+\end{ques}
+
+\begin{ques}[Stirling Number Identity, 20 points]
+Prove that
+$$
+c(n,k) = \sum_{m=1}^n (n-1)_{m-1}c(n-m,k-1).
+$$
+\end{ques}
+
+\begin{ques}[Average Number of Cycles, 40 points].
+\begin{enumerate}[(a)]
+\item For an ordering of the numbers from $1$ to $n$, $a_1,a_2,\ldots,a_n$, let a record be a value $i$ so that $a_i > a_j$ for all $j<i$. Show that the number of such orderings with exactly $k$ records equals the number permutations of $n$ with exactly $k$ cycles. [20 points]
+\item Show that on average over permutations of $[n]$ of the number of cycles in the permutation is the harmonic number
+$$
+H_n = \sum_{i=1}^n \frac{1}{i}.
+$$
+[20 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend on this homework?
+\end{ques}
+
+\end{document} 

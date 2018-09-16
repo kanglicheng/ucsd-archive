@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{Math 184A Homework 4}
+\date{Spring 2018}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope by Friday May 11th at 11:59pm. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Permutation Parity, 20 points]
+Let $n>1$ be an integer and let $S$ be a set of pairs of numbers $(i,j)$ with $i,j\in [n]$. Say that a permutation $\pi$ of $[n]$ avoids $S$ if $\pi(i)\neq j$ for all $(i,j)\in S$. So, for example, a derangement is a permutation that avoids $\{(1,1),(2,2),(3,3),\ldots,(n,n)\}$. Suppose that for any $n-1$ elements of $S$ that either some two share a first coordinate or some two share a second coordinate. Prove that the number of permutations that avoid $S$ is even. [Hint: Count the number using Inclusion-Exclusion.]
+\end{ques}
+
+\begin{ques}[Size of Central Binomial Coefficients, 20 points]
+Show that for any $n\geq 1$
+$$
+4^n \geq \binom{2n}{n} \geq 4^n/(2n+1).
+$$
+[Hint: for the lower bound show that $\binom{2n}{n}\geq \binom{2n}{k}$ for any $k$.] [Note: For those who know some number theory, it is not hard to see that $\binom{2n}{n}$ is divisible by the product of all primes $n\leq p\leq 2n$. This allows one to prove rough upper bounds on the number of primes.]
+\end{ques}
+
+\begin{ques}[Sums of Binomial Coefficients, 30 points].\\
+\begin{enumerate}[(a)]
+\item Give a formula for $\binom{n}{0}+\binom{n}{2}+\binom{n}{4}+\ldots+\binom{n}{2\lfloor n/2 \rfloor}$ as a function of $n$. [Hint: use the binomial theorem. You'll need a way to make the odd terms go away.][10 points]
+\item Give a formula for $\binom{n}{0}+\binom{n}{3}+\binom{n}{6}+\ldots+\binom{n}{3\lfloor n/3 \rfloor}$ as a function of $n$. [Hint: same idea, but you might need to use complex numbers.][20 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Linear Homogeneous Recurrence Relations, 30 points]
+Suppose that a sequence $A_n$ satisfies a linear homogenous recurrence relation with constant coefficients. Namely, suppose that there are constants $C_1,C_2,\ldots,C_k$ so that
+$$
+A_n = C_1 A_{n-1}+C_2 A_{n-2}+\cdots+ C_kA_{n-k}
+$$
+for all $n\geq k$.
+\begin{enumerate}[(a)]
+\item Show that the generating function $F(x) = \sum_{n=0}^\infty A_n x^n$ is given by a rational function in $x$ (namely a ratio of polynomials in $x$). [15 points]
+\item Given that partial fraction decompositions, allow you to write any rational function as a polynomial plus a linear combination of terms of the form $1/(1-b_i x)^{a_i}$, show that there's a formula expressing $A_n$ as some linear combination of terms of the form $n^{k_i} b_i^n$ for all sufficiently large $n$. [15 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend on this homework?
+\end{ques}
+
+\end{document} 

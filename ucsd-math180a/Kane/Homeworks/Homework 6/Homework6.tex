@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{Math 184A Homework 6}
+\date{Spring 2018}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope by Friday June 1st at 11:59pm. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Limiting Exponent, 50 points].\\
+\begin{enumerate}[(a)]
+\item Show that for any permutation $q$ and any positive integers $n$ and $m$ that
+$$
+S_n(q)S_m(q) \leq S_{n+m}(q).
+$$
+[25 points]
+\item Use this to prove that for any permutation $q$ that
+$$
+L(q) = \lim_{n\rightarrow \infty} \sqrt[n]{S_n(q)}
+$$
+exists and is finite. [You may use the result mentioned in class that for each $q$ there is a constant $C_q$ so that $S_n(q) \leq C_q^n$] [25 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Avoiding 132 and 4321, 50 points]
+Let $S_n(132,4321)$ be the number of permutations of $[n]$ that avoid both $132$ and $4321$. Show that
+$$
+S_n(132,4321) = 2\binom{n}{4} + \binom{n+1}{3}+1.
+$$
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Approximately how much time did you spend on this homework?
+\end{ques}
+
+\end{document} 

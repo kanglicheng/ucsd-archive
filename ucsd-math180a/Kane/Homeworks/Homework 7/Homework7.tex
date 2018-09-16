@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsthm, amssymb, amsmath,verbatim}
+\usepackage[margin=1in]{geometry}
+\usepackage{enumerate}
+\usepackage{graphicx}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+
+
+
+\newtheorem*{claim}{Claim}
+\newtheorem{ques}{Question}
+
+
+\title{Math 184A Homework 7}
+\date{Spring 2018}
+
+\begin{document}
+
+\maketitle
+
+This homework is due on gradescope by Friday June 8th at 11:59pm. Remember to justify your work even if the problem does not explicitly say so. Writing your solutions in \LaTeX is recommend though not required.
+
+\begin{ques}[Avoidance Bounds, 20 points]
+From the book we know that $S_n(1432)\leq 9^n$. Find a constant $C$ so that $S_n(321456987)\leq C^n$ for all $n$.
+\end{ques}
+
+\begin{ques}[Hill Avoidance, 40 points]
+Let a $k$-hill in a permutation be a subsequence of $2k-1$ of the entries the first $k$ of which are in increasing order and the last $k$ of which are in decreasing order. Note that a $k$-hill is not a single pattern. For example, a $2$-hill is either an instance of the pattern $132$ or an instance of the pattern $231$.
+\begin{enumerate}[(a)]
+\item Show that the number of permutations of $[n]$ with no $2$-hill is $2^{n-1}$. [15 points]
+\item Show that the number of permutations of $[n]$ with no $k$-hill is at most $(4(k-1)^2)^n$. [Hint: try to find a decreasing sequence among elements that are the largest of a $k$-term increasing subsequence.] [25 points]
+\end{enumerate}
+\end{ques}
+
+\begin{ques}[Marriage Lemma, 40 points]
+The Marriage Lemma states that if you are given two sets $S$ and $T$ of size $n$ and a set $E$ of pairs of one element of each set, then there is a matching between $S$ and $T$ (namely a set of $n$ pairs from $E$ using each element of $S$ and each element of $T$ exactly once) unless there is some subset $S'\subset S$ so that the total number of elements of $T$ that pair with some element of $S'$ is less than $|S'|$.
+
+Prove the Marriage Lemma using Dilworth's Theorem.
+\end{ques}
+
+\begin{ques}[Extra credit, 1 point]
+Free point!
+\end{ques}
+
+\end{document} 
