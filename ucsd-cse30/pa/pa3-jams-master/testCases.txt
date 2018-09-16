@@ -1,0 +1,61 @@
+TEST CASES FOR STRLEN:
+cse30
+cse301
+ds
+""
+
+TEST CASES FOR STRCMP:
+cse30, cse12
+CSE30, cse30
+abc, abcde
+"", df
+"", ""
+
+TEST CASES FOR STRTRUNC:
+cse30, 2
+cse30, 6
+cse30, -1
+qbcder, 1
+rtw, 4
+"", 1
+"", 2
+bc, 0
+"", 0
+
+TEST CASES FOR STRREV:
+cse30, 1, 3
+cse30, -1, 4
+Test, 0, 3
+cases, 1, 3
+branch, 1, 5
+abcdefg, 0, 0
+abcdefg, 5, 9
+
+TEST CASES FOR PALINDROME:
+cse30
+racecar
+RacecaR
+dfkgjldkfjgl
+casesac
+a
+aa
+aaa
+aabaa
+aaabaa
+warsawwasraw
+""
+
+TEST CASES FOR STRFIND:
+cse30, ""
+cse30, 30
+cse30, se
+cse30, a
+23cse4656, 56
+23cse4656, e
+23cse4656, 6
+dasdasdklajsdlkajsd, sdas
+23cs, 2se
+cse30, cz
+cse30, cs
+abcdefg, a
+abcdefg, g

@@ -1,0 +1,63 @@
+Question 1:
+
+TestREADMEQuestion1(CuTest *tc) {                                          
+  setup_heap();                                                                 
+  int i;                                                                       
+  int arraysize = 150;                                                          
+  int* ptr_array[arraysize];                                                    
+  int free_array[arraysize];                                                    
+                                                                                
+  for(i = 1; i < arraysize; i++) {                                              
+    int r = rand() % 17  +1;                                                    
+
+    printf("next:     i: %i  0x---??--- = my_malloc(%i)\n incoming CFL: %p\n", i, r, current_free_list);
+    getchar();                                                                  
+
+    int *p = (int*)my_malloc(r);                                                
+    ptr_array[i] = p;                                                           
+
+    dump(1028);                                                                 
+    printf("live data: %i  free space: %i \n", live_data(), free_space() );     
+    printf("previous: i: %i  %p = my_malloc(%i)\n", i, ptr_array[i], r);        
+  }                                                                             
+
+  for(i = 0; i < arraysize; i++) {                                              
+    free_array[i] = my_free(ptr_array[rand() % 100 + 1]);                       
+  }                                                                             
+  dump(1028);                                                                   
+  printf("Free Space should be relatively large and my_malloc returns  null");  
+  printf("free_space = %d\n", free_space());                                    
+  teardown_heap();                                                              
+}
+
+Fragmentation is caused by many randomly sized malloc and free's interspersed.
+This means that even small requests to my_malloc which normally have no
+problem finding a free entry to fit into are unable to find a free entry
+large enough. Despite there not being any suitable free entries, there are
+actually a large number of very small free entries as well as a large amount of
+free space. Uncomment this in test.c to see behavior.
+
+
+Question 2:
+
+void TestREADMEQuestion2(CuTest * tc) {                                         
+  setup_heap();                                                                 
+  void* p1 = my_malloc(500);                                                    
+  void* p2 = my_malloc(250);                                                    
+  void* p3 = my_malloc(125);                                                    
+  void* p4 = my_malloc(40);                                                     
+  int f1 = my_free(p1);                                                         
+  int f2 = my_free(p2);                                                         
+  int f3 = my_free(p3);                                                         
+  int f4 = my_free(p4);                                                         
+  teardown_heap();                                                              
+}                           
+
+This workload demostrates allocating blocks in an order from large to small,
+that when prepended onto the current free list results in a small to large
+ordering of free entries, whereby smaller allocations are mapped immediately
+and larger allocations will take a time correspondingly larger to map. 
+Appending would reverse the ordering of the free list for this workload
+and would place larger free entries first in the current free list, thereby 
+allowing a quicker match for large and small blocks alike. Uncomment the above
+in test.c to examine behavior.

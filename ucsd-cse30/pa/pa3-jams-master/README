@@ -1,0 +1,44 @@
+Unique class id: fajr
+README
+10/29/2017
+
+1. Given char * str = "abcd";
+Suppose str points to memory address 0x50. Show what values are
+laid out in memory from memory address 0x50 to 0x54 after the code
+runs. Additionally explain why a character needs a byte of memory.
+
+Mem	HEX	Char
+-----------------------------
+0x50	0x61	a
+0x51	0x62	b
+0x52	0x63	c
+0x53	0x64	d
+0x54	0x0	null( for termination)
+
+There are 12 ASCII characters. This means that you need 7 bits to
+represent any ASCII character. A byte is composed of 2 nibbles of
+4 bits each so a byte is 8 bits. Therefore in hex you need atleast 
+one byte or two nibbles to represent any ASCII character.
+
+
+2. 
+Explain how you would concatenate a C-string input 2 to the end of
+another C-string input1 in assembly. You do not need to provide 
+code. Assume enough memory has been allocated to accomodate the 
+length of the new string, and the starting address of the new string
+is the same as the starting address of input1.
+
+
+To concatenate input2 to input1, find the memory 
+location of the null byte at the end of input1 and 
+replace its contents with the first character of
+input 2. Replace the next sequential memory address with
+the second character of input2. Do this until you reach
+the end of input2. Then append a null character to the 
+memory address at the end of input 2.
+
+
+3. Explain what information a function has to preserve as the callee.
+
+The callee cannot change the values in r4-r11, and r14(lr). The callee
+also cannot modify the stack(memory used for temporary variables.)
