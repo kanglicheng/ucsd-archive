@@ -1,0 +1,213 @@
+    
+    /* Hintergrundfarbe und allgemeine schrift */
+    
+    body {
+        /*font-family: "Trebuchet MS", Helvetica, sans-serif;*/
+        font-family: Helvetica, sans-serif;
+        background-color: #E8E8E8; /* seite hintergrund */
+    }
+    
+    
+    /* Kantenstil fuer alle relevanten elemente */
+    
+    header
+    {    
+        /*border-radius: 1.5rem 1.5rem 0.0rem 0.0rem;*/
+        border-radius: 0rem 0rem 0.0rem 0.0rem;
+        border-width: 0.3125rem; /* 5px; */
+        border-style: solid;
+        
+        margin-bottom: 0.3125rem; /* 5px; */
+        
+        padding: 0rem; 
+        padding-left: 0rem;
+        padding-right: 0rem;
+        
+    }
+    
+    main
+    {    
+        border-radius: 0rem 0rem 0.0rem 0rem;
+        border-width: 0.3125rem; /* 5px; */
+        border-style: solid;
+        margin-top: 0.3125rem; /* 5px; */
+        margin-bottom: 0.3125rem; /* 5px; */
+        padding: 0.625rem; /* 10px; */
+        padding: 5rem 7.7rem; /* 80px 120px; */
+        
+    }
+    
+@media all and (max-width: 70rem) {
+    
+    main {
+        padding: 1rem 2rem; 
+    }
+
+}
+
+
+    
+    footer
+    {    
+        border-radius: 0.0rem 0.0rem 1.5rem 1.5rem;
+        border-width: 0.3125rem; /* 5px; */
+        border-style: solid;
+        margin-top: 0.3125rem; /* 5px; */
+        padding: 0.625rem; /* 10px; */ 
+        padding-left: 1.925rem; /* 30px; */ 
+        padding-right: 1.925rem; /* 30px; */ 
+    }
+    
+    /* Elementfarben und Kantenfarben */
+    
+    header {
+        background: #FFFFFF; /* background: #FFDDC9; header hintergrund */
+        border-color: #31D1F1; /* #FF6F1B header kante */
+    }
+
+    main {
+        background: #FFFFFF; /* main hintergrund - #F8F8F8*/
+        border-color: #E50091; /* main kante */
+/*         font-size: large; */
+    }
+    
+    footer {
+        background: #BDFFFC; /* footer hintergrund */
+        border-color: #25AAA0; /* footer kante */    
+    }
+    
+    
+    /* Navigationsleiste */
+    
+    nav
+    {    
+        margin: 0rem;
+        padding: 0rem;
+    
+        border-radius: 0rem 1.5rem 0.0rem;
+        border-width: 0.3125rem; /* 5px; */
+        border-style: solid;
+        border-style: none;
+    }
+    
+    nav ul {
+        margin: 0rem;
+        padding: 0rem;
+        overflow: hidden;
+        /*padding-left:  30px;
+        padding-right: 30px;*/
+        
+        /*border-style: solid;*/
+    
+    }
+    
+    nav li {
+        padding: 0rem 0rem 0rem 0rem;
+        margin: 0rem;
+        list-style-type: none;
+        text-align: center;
+        /* float: left ist eine schlechte Idee */
+        
+        border-style: none;
+        border-color: #31D1F1;
+    }
+    
+    nav a
+    {    
+        padding-left: 3.2rem; /* 50px; */
+        padding-right: 3.2rem; /* 50px; */
+        padding-top: 1.28rem; /* 20px; */ 
+        padding-bottom: 1.28rem; /* 20px; */ 
+        margin: 0rem;
+        display: block;
+    
+        background: #FFFFFF; /* #FFDDC9; navigationsanker hintergrund */
+        
+        border-radius: 0rem 0rem 0.0rem;
+        border-width: 0rem;
+        border-style: solid;
+        border-color: #31D1F1; /* FF6F1B navigationsanker kante */
+        text-align: center;
+        text-decoration: none;
+        font-size: 18pt;
+    }
+
+    nav a:hover {
+        background-color: #31D1F1; /* 76DEF3 FF6F1B navigationsanker hintergrund hover = navigationsanker kante */
+        cursor: pointer;
+    }
+
+    nav a:link {
+        color: black; /* #E50091; */
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav a:visited {
+        color: black;/* #25aaa0; */
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    nav a:link:active, 
+    nav a:visited:active {
+        color: black;
+        text-decoration: none;
+        
+    }
+    
+    
+    
+    /* General hyperlinks */
+    
+    a:hover {
+        
+    }
+
+    a:link {
+        
+    }
+
+    a:visited {
+       
+    }
+
+    a:link:active, 
+    a:visited:active {
+        
+    }
+    
+    
+    
+    
+    
+    /* Bild im Hauptteil */
+    
+    main img.hauptbild
+    {
+      border-radius: 0%;
+      max-width:50%;
+      height:auto;
+      float: right;
+    }
+    
+/*@media all and (max-width: 60rem) {
+    
+    main img.hauptbild{
+        max-width:35%;
+        float: right;
+    }
+
+}*/
+
+@media all and (max-width: 50rem) {
+    
+    main img.hauptbild{
+        max-width:0%;
+        float: none;
+        visibility:hidden;
+    }
+
+}
+
+

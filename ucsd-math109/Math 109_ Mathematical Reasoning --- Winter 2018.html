@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)http://www.math.ucsd.edu/~mlicht/math109/main.html#homework -->
+<html lang="de"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        
+        <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+        <link href="./Math 109_ Mathematical Reasoning --- Winter 2018_files/look.css" rel="stylesheet" type="text/css">
+        <link href="./Math 109_ Mathematical Reasoning --- Winter 2018_files/flex.css" rel="stylesheet" type="text/css">
+        <style>
+          
+          header
+          {
+            margin-top: 0.3125rem;
+          }
+          
+          header nav ul li a
+          {
+            padding-left: 0rem; /* 50px; */
+            padding-right: 0rem; /* 50px; */
+            padding-top: 1rem; /* 20px; */ 
+            padding-bottom: 1rem; /* 20px; */ 
+            margin: 0rem;
+            font-size: 1em;
+          }
+          
+          main
+          {
+            border-color: #3bc;
+            padding: 2.5rem 2.5rem; 
+            text-align: left; 
+            vertical-align:top
+          }
+          
+          main#general table
+          {
+            border-style: none;
+          }
+          
+          main#general table tr td
+          {
+            padding-top:    0.5em;
+            padding-bottom: 0.5em;
+          }
+          
+          main#general table tr td:nth-child(1)
+          {
+            border-style: none;
+            border-color: blue;
+            font-weight: bold;
+            width:30%;
+            vertical-align:top;
+          }
+          
+          main#general table tr td:nth-child(2)
+          {
+            border-style: none;
+            border-color: red;
+            width:70%;
+            vertical-align:top;
+          }
+          
+          
+          
+          main#grading table
+          {
+            border-collapse: collapse;
+            border-style: solid;
+            border-color:#3bc;
+          }
+          
+          main#grading table tr td
+          {
+            padding-top:    0.5em;
+            padding-bottom: 0.5em;
+            padding-left:   0.5em;
+            padding-right:  0.5em;
+          
+            vertical-align:top;
+            border-style: solid;
+            border-width: 3px;
+            border-color:#3bc;
+            font-weight: bold;
+            
+          }
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          main#calendar table
+          {
+            border-collapse: collapse;
+            border-style: solid;
+            border-color:#3bc;
+          }
+          
+          main#calendar table tr td
+          {
+            padding-top:    0.5em;
+            padding-bottom: 0.5em;
+            padding-left:   0.5em;
+            padding-right:  0.5em;
+            
+          }
+          
+          main#calendar table tr.holiday
+          {
+            background-color: #BDFFFC;
+          }
+          
+          main#calendar table tr.midterm
+          {
+            background-color: orange;
+          }
+          
+          main#calendar table tr.exam
+          {
+            background-color: orange;
+          }
+          
+          main#calendar table tr.info
+          {
+            background-color: yellow;
+          }
+          
+          main#calendar table tr td:nth-child(1)
+          {
+            vertical-align:top;
+            border-style: solid;
+            border-color:#3bc;
+            font-weight: bold;
+            width:30%;
+          }
+          
+          main#calendar table tr td:nth-child(2)
+          {
+            vertical-align:top;
+            border-style: solid;
+            border-color:#3bc;
+            width:70%;
+          }
+          
+          
+        
+        </style>
+        <title>
+            Math 109: Mathematical Reasoning --- Winter 2018 
+        </title>
+    </head>
+    
+    <body class="flex-container" style="max-width:60em">
+        
+<!--    General course information       -->
+        
+        <main id="titleblock" class="flex-item" style="padding: 0rem; text-align: center">
+            
+            <h1>
+            Math 109 -- Mathematical Reasoning -- Winter 2018    
+            </h1>
+            
+        </main>
+        
+        <header class="flex-item">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="http://www.math.ucsd.edu/~mlicht/math109/main.html#general"><b>General</b></a>
+                    </li>
+                    <li>
+                        <a href="http://www.math.ucsd.edu/~mlicht/math109/main.html#announcements"><b>Announcements</b></a>
+                    </li>
+                    <li>
+                        <a href="http://www.math.ucsd.edu/~mlicht/math109/main.html#grading"><b>Grading</b></a>
+                    </li>
+<!--                 </ul> -->
+<!--                 <ul> -->
+                    <li>
+                        <a href="http://www.math.ucsd.edu/~mlicht/math109/main.html#homework"><b>Homework</b></a>
+                    </li>
+                    <li>
+                        <a href="http://www.math.ucsd.edu/~mlicht/math109/main.html#calendar"><b>Calendar</b></a>
+                    </li>
+                    <li>
+                        <a href="http://www.math.ucsd.edu/~mlicht/math109/main.html#material"><b>Material</b></a>
+                    </li>
+                    <li>
+                        <a href="http://www.math.ucsd.edu/~mlicht/math109/main.html#links"><b>Links</b></a>
+                    </li>
+                    
+                </ul>
+            </nav>
+        </header>
+
+        <!--<main class="flex-item" style="text-align:center"><h1>Under Construction.</h1></main>-->
+        
+        <main id="general" class="flex-item">
+        
+            <table style="width:100%">
+            <tbody><tr>
+              <td>
+               Lecture site: 
+              </td>
+              <td>
+               CENTR 212
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Lecture times:
+              </td>
+              <td>
+               Monday, Wednesday, Friday. 11:00pm-11:50pm.  
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Discussion sessions
+              </td>
+              <td>
+               B01 927126: Wednesday 4:00p-4:50p, AP&amp;M  B412 with Renee Mirka
+               <br>
+               B02 927127: Wednesday 5:00p-5:50p, AP&amp;M  B412 with Pieter Spaas
+               <br>
+               B03 927128: Wednesday 6:00p-6:50p, AP&amp;M  B412 with Pieter Spaas
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Final Exam<br>time and place
+              </td>
+              <td>
+               March 19th, 2018, 11:30pm - 2:29pm. Place to be announced.
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Instructor
+              </td>
+              <td>
+               Martin Licht
+               <br>
+               Email: mlicht AT ucsd DOT edu
+               <!--<br />
+               Phone: tba-->
+               <br>
+               Office: AP&amp;M 5880E
+               <br>
+               Hours: Monday. 3:00 - 4:00pm.
+               
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Teaching Assistant
+              </td>
+              <td>
+               Renee Mirka
+               <br>
+               Email: rmirka AT ucsd DOT edu
+               <br>
+               Office Hours: Tuesday 12-2pm, AP&amp;M 6446
+               <!--<br />
+               Hours: [Blank]<!--Wednesday 10:15 - 11:45am, 12:30pm - 2pm.-->
+               
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Teaching Assistant
+              </td>
+              <td>
+               Pieter Spaas
+               <br>
+               Email: pspaas AT ucsd DOT edu
+               <br>
+               Office Hours: Wednesday 2-4pm in AP&amp;M 5829, Thursday 8:30-10:30am in AP&amp;M 7218<!--AP&amp;M 6452-->
+               <!--<br />
+               Hours: [Blank]<!--Tuesday 6-7pm, Wednesday 5-7pm, at Muir Woods coffee shop. -->
+               
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Sections
+              </td>
+              <td>
+               927126, 927127, 927128 
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Course content
+              </td>
+              <td>
+               This course uses a variety of topics in mathematics to 
+introduce the students to rigorous mathematical proof, 
+               emphasizing quantifiers, induction, negation, proof by 
+contradiction, naive set theory, equivalence relations and epsilon-delta
+ proofs. 
+               Required of all departmental majors.
+              </td> 
+            </tr>
+            <!--<tr>
+              <td>
+               expected previous knowledge 
+              </td>
+              <td>
+               The students are expected to be familiar with the basic concepts of matrix and vector arithmetics,
+               basic knowledge in matrix inversion, and Gaussian elimination.
+              </td> 
+            </tr>-->
+            <!--<tr>
+              <td>
+               Required textbook
+              </td>
+              <td>
+               Reading the sections of the textbook corresponding to the assigned homework exercises
+               is considered part of the homework assignment. You are responsible for material 
+               in the assigned reading whether or not it is discussed in the lecture. 
+               It will be expected that you read the assigned material in advance of each lecture.
+              </td>
+            </tr>-->
+            <tr>
+              <td>
+               Resources recommended<br>in addition
+              </td>
+              <td>
+               <ul>
+                 <li>
+                   Daniel J. Velleman, <i>How to prove it</i>. 
+                   <a href="http://www.cambridge.org/us/academic/subjects/mathematics/logic-categories-and-sets/how-prove-it-structured-approach-2nd-edition">Publisher's website</a>
+                 </li>
+                 <li>
+                   A. K. Kharcheva, V. M. Bradis, L. Minkovskii, <i>Lapses in Mathematical Reasoning</i>. 
+                   <a href="http://store.doverpublications.com/048640918x.html">Publisher's website</a>
+                 </li>
+                 <li>
+                   Raymund M. Smullyan, <i>A Beginner's Guide to Mathematical Reasoning</i>. 
+                   <a href="http://store.doverpublications.com/0486492370.html">Publisher's website</a>
+                 </li>
+                 <li>
+                   Serge Lang, <i>Linear Algebra</i>. 
+                   <a href="http://www.springer.com/us/book/9780387964126">Publisher's website</a>
+                 </li>
+                 <li>
+                   Robert J. Valenza, <i>Linear Algebra - An Introduction to Abstract Mathematics</i>. 
+                   <a href="https://link.springer.com/book/10.1007/978-1-4612-0901-0">Publisher's website</a>
+                 </li>
+                 <li>
+                   Gareth A. Jones, Josephine M. Jones, <i>Elementary Number Theory</i>. 
+                   <a href="http://www.springer.com/us/book/9783540761976">Publisher's website</a>
+                 </li>
+                 
+               </ul>
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Formal prerequesite
+              </td>
+              <td>
+               Math 18 or Math 20F or Math 31AH, and Math 20C. Students 
+who have not completed listed prerequisites may enroll with consent of 
+instructor. 
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Credit Hours:
+              </td>
+              <td>
+               4 units
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Homework information
+              </td>
+              <td>
+               Homework will announced on Fridays after lecture.
+               Homework can be submitted to the mailboxes  
+               on Friday's before 11am in the morning (before the lecture starts),
+               or that the very beginning of Friday's lecture. 
+               All submissions must be in handed-in in handwritten form. 
+              </td> 
+            </tr>
+            <tr>
+              <td>
+               Academic Integrity
+              </td>
+              <td>
+                <!--Academic Dishonesty:  Academic dishonesty is considered a serious offense at UCSD. Students caught cheating will face an administrative sanction which may include suspension or expulsion from the university. It is in your best interest to maintain your academic integrity.-->
+                Every student is expected to conduct themselves with academic integrity.
+                Violations of academic integrity will be treated seriously.
+                See 
+                <a href="http://www-senate.ucsd.edu/manual/Appendices/app2.htm">
+                http://www-senate.ucsd.edu/manual/Appendices/app2.htm
+                </a> for 
+                UCSD Policy on Integrity of Scholarship.          
+              </td> 
+            </tr>
+          </tbody></table>
+
+            
+            
+            <!-- 
+    http://math.ucsd.edu/~doprea/102.html:
+    Reading the sections of the textbook corresponding to the assigned homework exercises is considered part of the homework assignment. You are responsible for material in the assigned reading whether or not it is discussed in the lecture. It will be expected that you read the assigned material in advance of each lecture. 
+    -->
+    
+            
+            
+            
+            
+        </main>
+        
+        <main id="announcements" class="flex-item">
+            
+            <h2>Announcements</h2>
+            
+            <b>January 8 - Welcome to MATH 109</b>
+            <!-- -->
+            <br>
+            <br>
+            
+            <b>January 8 - Piazza</b>
+            <br>
+            You find a link to the Piazza website for the course below in the Helpful Links section.
+            <br>
+            <br>
+            
+            
+            
+        </main>
+        
+        <main id="grading" class="flex-item">
+            
+            <h2>Grading Information</h2>
+            
+            The final grade will composed 20% homework
+            and either (a) 20% of the first midterm, and 20% of the second midterm, and 40% of the final exam
+            or (b) 20% of the best midterm and 60% of the final exam,
+            depending on what gives the better result. 
+            
+            <br>
+            <br>
+            
+            Your course grade will be determined by your cumulative average at the end of the quarter,
+            based on the following scale:
+            <br>
+            <br>
+            
+              <center>        
+              <table class="gradingtable" cellspacing="0" cellpadding="10" border="1">
+                <tbody>
+                  <tr>
+                    <td><b>A+</b></td>
+                    <td><b>A</b></td>
+                    <td><b>A-</b></td>
+                    <td><b>B+</b></td>
+                    <td><b>B</b></td>
+                    <td><b>B-</b></td>
+                    <td><b>C+</b></td>
+                    <td><b>C</b></td>
+                    <td><b>C-</b></td>
+                  </tr>
+                  <tr>
+                    <td><b>100   - 96.66</b></td>
+                    <td><b>96.65 - 93.33</b></td>
+                    <td><b>93.32 - 90.00</b></td>
+                    <td><b>89.99 - 86.66</b></td>
+                    <td><b>86.65 - 83.33</b></td>
+                    <td><b>83.32 - 80.00</b></td>
+                    <td><b>79.99 - 76.66</b></td>
+                    <td><b>76.65 - 73.33</b></td>
+                    <td><b>73.32 - 70</b></td>
+                  </tr>
+                  <!--<tr>
+                    <td><b>100 - 95</b></td>
+                    <td><b>94 - 89</b></td>
+                    <td><b>88 - 84</b></td>
+                    <td><b>83 - 78</b></td>
+                    <td><b>77 - 73</b></td>
+                    <td><b>72 - 66</b></td>
+                    <td><b>66 - 62</b></td>
+                    <td><b>61 - 56</b></td>
+                    <td><b>55 - 50</b></td>
+                  </tr>-->
+                </tbody>       
+              </table>
+              </center>
+            
+            <br>
+              
+            The above scale is guaranteed: 
+            for example, if your cumulative average is at least 73, 
+            then your final grade will be <i>at least</i> B.
+            However, your instructor may adjust the above scale to be more generous.
+            
+            
+            
+        </main>
+        
+        <main id="homework" class="flex-item">
+            
+            <h2>Homework</h2>
+            
+            <ol>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/exercises-weekone.pdf">Week One Exercises</a>
+               - 
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/exercises-weekone-solution.pdf">Week One Exercise Solutions</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework1.pdf">Homework 1</a>
+               - 
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework1-solutions.pdf">Solutions 1</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework2.pdf">Homework 2</a>
+               - 
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework2-solutions.pdf">Solutions 2</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/midterm-exercise.pdf">Practice for the First Midterm</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/midterm1_sol.pdf">Solution for First Midterm</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework3.pdf">Homework 3</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/homework3-solutions.pdf">Solutions 3</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework4.pdf">Homework 4</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/homework4-solutions.pdf">Solutions 4</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework5.pdf">Homework 5</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/homework5-solutions.pdf">Solutions 5</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework6.pdf">Homework 6</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/homework6-solutions.pdf">Solutions 6</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/midterm2-exercise.pdf">Practice for the Second Midterm</a>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/midterm2-exercise-solution.pdf">Solution for Practice Problems</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/midterm2-solutions.pdf">Solution for Second Midterm</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework7.pdf">Homework 7</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/homework7-solutions.pdf">Solutions 7</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/homework8.pdf">Homework 8</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/homework8-solutions.pdf">Solutions 8</a>
+             </li>
+             <li>
+               <a href="http://www.math.ucsd.edu/~mlicht/math109/practice-final.pdf">Practice for Final</a>
+                - <a href="http://www.math.ucsd.edu/~mlicht/math109/practice-final-solutions.pdf">Solutions</a>
+             </li>
+             <!--<li><a href="summary.first.pdf">Preparation for First Midterm</a> - <a href="solutions.fm.pdf">Solutions for First Midterm</a></li>
+             <li><a href="homework6.pdf">Homework Assignment 6</a>-->
+            </ol>
+            
+        </main>
+        
+        <main id="calendar" class="flex-item">
+            
+            
+            <h2>Course Calendar</h2>
+            
+            <table style="width:100%">
+              <tbody><tr>
+                <th>
+                Lecture
+                </th>
+                <th>
+                Content
+                </th> 
+              </tr>
+              <tr>
+                <td>
+                # 1, 1M<br>08.01.2018.
+                </td>
+                <td>
+                 Administrativa. 
+                 Examples and Motivation. 
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.intro.pdf">[Slides]</a>
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.content1.pdf">[Slides]</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                # 2, 1W<br>10.01.2018.
+                </td>
+                <td>
+                 Statements, Implications, Equivalences.
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.statements.pdf">[Slides]</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                # 3, 1F<br>12.01.2018.
+                </td>
+                <td>
+                 Propositions and Logical operators: and, or, negation, either-or.
+                 Truth tables. 
+                 Composition of logical operations.
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.connectives1.pdf">[Slides]</a>
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.connectives2.pdf">[Slides]</a>
+                 <i>Homework 1 announced</i>. 
+                </td>
+              </tr>
+              <tr class="holiday">
+                <td>
+                # 4, 2M<br>15.01.2018.
+                </td>
+                <td>
+                 Martin Luther King Day 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                # 5, 2W<br>17.01.2018.
+                </td>
+                <td>
+                Further logical connectives. Naive Set Theory
+                <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.connectives3.pdf">[Slides]</a>
+                <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.naivesets1.pdf">[Slides]</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                # 6, 2F<br>19.01.2018.
+                </td>
+                <td>
+                  Classes. 
+                  Naive Set Theory: set-theoretical operations.
+                  <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.class.pdf">[Slides]</a>
+                  <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.naivesets2.pdf">[Slides]</a>
+                  <i>Homework 1 collected</i>. <i>Homework 2 announced</i>.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                # 7, 3M<br>22.01.2018.
+                </td>
+                <td>
+                  Binary Operators in Set Theory. 
+                  Quantifiers.
+                  <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.naivesets2.pdf">[Slides]</a>
+                  <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.quantifier.pdf">[Slides]</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                # 8, 3W<br>24.01.2018.
+                </td>
+                <td>
+                  Quantifiers, continued.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                # 9, 3F<br>26.01.2018.
+                </td>
+                <td>
+                 Ordered Pairs and Cartesian Products. <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.cartesianproducts.pdf">[Slides]</a>
+                 <i>Homework 2 collected</i>. <i>Homework 3 announced</i>.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #10, 4M<br>29.01.2018.
+                </td>
+                <td>
+                  Some examples for proofs. 
+                </td>
+              </tr>
+              <tr class="exam">
+                <td>
+                #11, 4W<br>31.01.2018.
+                </td>
+                <td>
+                 <i>First Midterm</i>. 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #12, 4F<br>02.02.2018.
+                </td>
+                <td>
+                 Further examples for proofs. Elementary number theory: well-ordering principle and divisibility.
+                 <i>Homework 3 collected</i>. <i>Homework 4 announced</i>.
+                </td>
+              </tr>
+              <tr class="info">
+                <td colspan="2">
+                02.02.2018: Deadline to 
+                <a href="https://students.ucsd.edu/academics/enroll/calendar17-18.html">change grading option, change units, and drop classes</a>
+                without "W" grade on transcript.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #13, 5M<br>05.02.2018.
+                </td>
+                <td>
+                 Elementary number theory: division-remainder theorem, prime numbers, greatest common divisor.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #14, 5W<br>07.02.2018.
+                </td>
+                <td>
+                 Euclidean algorithm, Bezout's lemma. Infinitiy of the number of prime numbers.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #15, 5F<br>09.02.2018.
+                </td>
+                <td>
+                 <i>Homework 4 collected</i>. <i>Homework 5 announced</i>.
+                 Fundamental theorem of arithmetics. Applications.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #16, 6M<br>12.02.2018.
+                </td>
+                <td>
+                 Fundamental theorem of arithemetics, continued.
+                 Infinitude of prime numbers. 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #17, 6W<br>14.02.2018.
+                </td>
+                <td>
+                 Mersenne prime numbers.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #18, 6F<br>16.02.2018.
+                </td>
+                <td>
+                 Mersenne prime numbers. Two examples for mathematical induction. 
+                 <i>Homework 5 collected</i>. <i>Homework 6 announced</i>.
+                </td>
+              </tr>
+              <tr class="holiday">
+                <td>
+                #19, 7M<br>19.02.2018.
+                </td>
+                <td>
+                  President's Day
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #20, 7W<br>21.02.2018.
+                </td>
+                <td>
+                Functions
+                <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.functions1.pdf">[Slides]</a>
+                <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.functions2.pdf">[Slides]</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #21, 7F<br>23.02.2018.
+                </td>
+                <td>
+                 Functions.
+                 <i>Homework 6 collected</i>. <i>Homework 7 announced</i>.
+                </td>
+              </tr>
+              <tr class="exam">
+                <td>
+                #22, 8M<br>26.02.2018.
+                </td>
+                <td>
+                  <i>Second Midterm</i>. 
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #23, 8W<br>28.02.2018.
+                </td>
+                <td>
+                 Tuples and Sequences. Relations.
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.functions3.pdf">[Slides]</a>
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.relations.pdf">[Slides]</a>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #24, 8F<br>02.03.2018.
+                </td>
+                <td>
+                 Equivalence Relations. Orders.
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.order.pdf">[Slides]</a>
+                 <i>Homework 7 collected</i>. <i>Homework 8 announced</i>.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #25, 9M<br>05.03.2018.
+                </td>
+                <td>
+                 Partial Orders on Functions.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #26, 9W<br>07.03.2018.
+                </td>
+                <td>
+                 Total Orders. Lexicographical ordering on Cartesian Products.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #27, 9F<br>09.03.2018.
+                </td>
+                <td>
+                 Operations on Equivalence Classes. Modulo Arithmetics
+                 <a href="http://www.math.ucsd.edu/~mlicht/math109/slides.modulo.pdf">[Slides]</a>
+                 <i>Homework 8 collected</i>. <i>Practice Material for Final Published.</i>.
+                </td>
+              </tr>
+              <tr class="info">
+                <td colspan="2">
+                09.03.2018: Deadline to with "W" grade on transcript.
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #28,10M<br>12.03.2018.
+                </td>
+                <td>
+                 Modulo Arithmetics continued.
+                 <!--<a href="./slides.modulo.pdf">[Slides]</a>-->
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #29,10W<br>14.03.2018.
+                </td>
+                <td>
+                 Review
+                </td>
+              </tr>
+              <tr>
+                <td>
+                #30,10F<br>16.03.2018.
+                </td>
+                <td>
+                 Review
+<!--                 <i>Homework 9 collected</i>. -->
+                </td>
+              </tr>
+              <tr class="exam">
+                <td>
+                FI<br>19.03.2018.
+                </td>
+                <td>
+                 Final Exam. 11:30pm - 2:30pm. CENTR 212 (Lecture Room!) 
+                </td>
+              </tr>
+              
+            </tbody></table>
+
+            
+        </main>
+        
+        
+        <main id="material" class="flex-item">
+            
+            <h2>Course Material and Additional Resources</h2>
+            
+            F.A. Muller: Sets, Classes and Categories. 
+            The British Journal for the Philosophy of Science, Volume 
+52, Issue 3, 1 September 2001, Pages 539-573, 
+https://doi.org/10.1093/bjps/52.3.539
+            <a href="https://academic.oup.com/bjps/article/52/3/539/1496252">[Link]</a>
+            <br>
+            <br>
+            <a href="http://www.math.ucsd.edu/~mlicht/math109/sqrt2.pdf">Notes on the Irrationality of the Square Root of 2</a>
+            <br>
+            <br>
+            <a href="http://www.math.ucsd.edu/~mlicht/math109/eucalg.cpp">[Euclidean algorithm in C++]</a><a href="http://www.math.ucsd.edu/~mlicht/math109/eucalgrec.cpp">[Euclidean algorithm in C++, recursively]</a>
+            <br>
+            <br>
+            <a href="http://www.math.ucsd.edu/~mlicht/math109/binomial.pdf">Notes on the Binomial Theorem</a>
+            <br>
+            <br>
+            <a href="https://faculty.math.illinois.edu/~hildebr/213/inductionsampler.pdf">
+            Sample induction proofs from a course at the University of Illinois. </a>
+            Problems 1 - 13 are within the scope of this class. 
+            
+            
+        </main>
+        
+        
+        <main id="links" class="flex-item">
+            
+            <h2>Helpful Links</h2>
+            
+            <a href="https://students.ucsd.edu/academics/enroll/calendar17-18.html">
+            Important academic dates for this academic year</a>
+            <br>
+            <br>
+            <a href="https://piazza.com/ucsd/winter2018/math109/home">
+            Piazza Website for this course</a>
+            
+            
+            
+            
+            
+        </main>
+        
+        <!---->
+        
+        <footer class="flex-item">
+                <a href="mailto:mlichtREMOVETHIS@ucsd.edu">[Contact me via E-Mail]</a>
+                <br>
+                <i>Last Update: March 29, 2018<br> Martin W. Licht</i>
+        </footer>
+        
+        
+    
+    
+
+
+</body></html>
